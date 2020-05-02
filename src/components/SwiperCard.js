@@ -14,27 +14,25 @@ const SwiperCard = () => {
         nextButton={() => null}
         prevButton={() => null}
         containerStyle={styles.swiperContainerStyle}>
-        <LinearGradient
-          colors={[COLORS.BLUE_WEIGHT, COLORS.BLUE_MIDDLE, COLORS.BLUE_LIGHT]}
-          style={[styles.card, styles.slide1]}>
-          <View style={{flex: 1}}>
-            <Text style={[styles.text, styles.bigText]}>
-              We create products not just art
-            </Text>
-            <Text style={[styles.text, styles.smallText]}>
-              Our experience in the
-            </Text>
-          </View>
-          <View style={{flex: 1}}>
-            <Text>Image here</Text>
-          </View>
-        </LinearGradient>
-        <View style={styles.card}>
-          <Text style={styles.text}>Hello </Text>
+        <View>
+          <LinearGradient
+            colors={[COLORS.BLUE_WEIGHT, COLORS.BLUE_MIDDLE, COLORS.BLUE_LIGHT]}
+            style={[styles.card, styles.slide1]}>
+            <View style={{flex: 1}}>
+              <Text style={[styles.text, styles.bigText]}>
+                We create products not just art
+              </Text>
+              <Text style={[styles.text, styles.smallText]}>
+                Our experience in the
+              </Text>
+            </View>
+            <View style={{flex: 1}}>
+              <Text>Image here</Text>
+            </View>
+          </LinearGradient>
+          <View style={styles.shadown} />
         </View>
-        <View style={styles.card}>
-          <Text style={styles.text}>Hello jj</Text>
-        </View>
+        <View />
       </Swiper>
     </View>
   );
@@ -43,24 +41,17 @@ const SwiperCard = () => {
 const styles = StyleSheet.create({
   container: {
     height: 300,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   swiperContainerStyle: {
     height: 100,
   },
   card: {
-    backgroundColor: 'pink',
     display: 'flex',
     height: 240,
     borderRadius: 20,
     padding: 20,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.32,
-    shadowRadius: 10,
-    elevation: 9,
   },
   slide1: {
     display: 'flex',
@@ -74,6 +65,24 @@ const styles = StyleSheet.create({
   },
   smallText: {
     fontSize: 10,
+  },
+  shadown: {
+    height: 2,
+    borderRadius: 30,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
+    backgroundColor: '#fff',
+
+    shadowColor: '#575DED',
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16,
+
+    elevation: 24,
   },
 });
 
