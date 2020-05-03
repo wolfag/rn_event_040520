@@ -5,15 +5,16 @@ import {COLORS} from '../commons/constants';
 import PlusButton from '../components/PlusButton';
 import CartScreen from '../screens/CartScreen';
 import HomeScreen from '../screens/HomeScreen';
-import OrderScreen from '../screens/OrderScreen';
 import PlusScreen from '../screens/PlusScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import OrderTab from './OrderTab';
 
 const Tab = createBottomTabNavigator();
 
 function MainTab() {
   return (
     <Tab.Navigator
+      initialRouteName="Order"
       tabBarOptions={{
         activeTintColor: COLORS.BLUE_OUTLINE,
         inactiveTintColor: COLORS.GRAY_LIGHT,
@@ -54,7 +55,7 @@ function MainTab() {
       />
       <Tab.Screen
         name="Order"
-        component={OrderScreen}
+        component={OrderTab}
         options={{
           tabBarIcon: ({color, size}) => (
             <Icon name="book" color={color} size={size} />
