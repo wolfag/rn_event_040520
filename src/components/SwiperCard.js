@@ -4,6 +4,27 @@ import LinearGradient from 'react-native-linear-gradient';
 import Swiper from 'react-native-swiper';
 import {COLORS} from '../commons/constants';
 
+const Card = () => (
+  <View>
+    <LinearGradient
+      colors={[COLORS.BLUE_WEIGHT, COLORS.BLUE_MIDDLE, COLORS.BLUE_LIGHT]}
+      style={[styles.card, styles.slide1]}>
+      <View style={{flex: 1}}>
+        <Text style={[styles.text, styles.bigText]}>
+          We create products not just art
+        </Text>
+        <Text style={[styles.text, styles.smallText]}>
+          Our experience in the
+        </Text>
+      </View>
+      <View style={{flex: 1}}>
+        <Text>Image here</Text>
+      </View>
+    </LinearGradient>
+    <LinearGradient colors={['#CFD4F0', '#fff']} style={styles.shadown} />
+  </View>
+);
+
 const SwiperCard = () => {
   return (
     <View style={styles.container}>
@@ -14,25 +35,9 @@ const SwiperCard = () => {
         nextButton={() => null}
         prevButton={() => null}
         containerStyle={styles.swiperContainerStyle}>
-        <View>
-          <LinearGradient
-            colors={[COLORS.BLUE_WEIGHT, COLORS.BLUE_MIDDLE, COLORS.BLUE_LIGHT]}
-            style={[styles.card, styles.slide1]}>
-            <View style={{flex: 1}}>
-              <Text style={[styles.text, styles.bigText]}>
-                We create products not just art
-              </Text>
-              <Text style={[styles.text, styles.smallText]}>
-                Our experience in the
-              </Text>
-            </View>
-            <View style={{flex: 1}}>
-              <Text>Image here</Text>
-            </View>
-          </LinearGradient>
-          <View style={styles.shadown} />
-        </View>
-        <View />
+        <Card />
+        <Card />
+        <Card />
       </Swiper>
     </View>
   );
@@ -67,22 +72,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   shadown: {
-    height: 2,
-    borderRadius: 30,
+    height: 15,
+    marginTop: 1,
     marginLeft: 20,
     marginRight: 20,
-    marginBottom: 20,
-    backgroundColor: '#fff',
-
-    shadowColor: '#575DED',
-    shadowOffset: {
-      width: 0,
-      height: 12,
-    },
-    shadowOpacity: 0.58,
-    shadowRadius: 16,
-
-    elevation: 24,
+    borderRadius: 40,
+    opacity: 0.4,
   },
 });
 
