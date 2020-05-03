@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
+import {StyleSheet, Text, View} from 'react-native';
+import {commonStyles} from '../commons/styles';
 import Button from '../components/Button';
 import OrderItem from './OrderItem';
 
@@ -13,50 +13,33 @@ function OrderItemCard({list, time, type}) {
 
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
+      <View style={styles.header}>
+        <Text style={[commonStyles.txtGray, commonStyles.txtLight]}>
+          {time}
+        </Text>
 
-          padding: 20,
-
-          borderBottomColor: '#F8F9FB',
-          borderBottomWidth: 1,
-        }}>
-        <Text>{time}</Text>
-        <TouchableOpacity>
-          <Text>{type}</Text>
-        </TouchableOpacity>
+        <Text style={[commonStyles.txtBlue, commonStyles.txtLight]}>
+          {type}
+        </Text>
       </View>
-      <FlatList
-        keyExtractor={(item) => item.id.toString()}
-        data={list}
-        renderItem={({item}) => <OrderItem {...item} />}
-      />
-      <View
-        style={{
-          padding: 20,
-        }}>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            marginBottom: 20,
-          }}>
-          <View style={{flex: 1}} />
-          <Text>Total</Text>
-          <Text>${total}</Text>
+
+      {list.map((item) => (
+        <OrderItem key={item.id} {...item} />
+      ))}
+
+      <View style={commonStyles.p20}>
+        <View style={[commonStyles.fullLine, commonStyles.mb20]}>
+          <View style={commonStyles.full} />
+          <Text style={[commonStyles.txtGray, commonStyles.mr10]}>Total:</Text>
+          <Text style={commonStyles.txtBold}>$ {total}</Text>
         </View>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-          }}>
-          <View style={{flex: 1}} />
-          <Button style={{marginRight: 10}} title="Cancel" state={false} />
-          <Button title="Pay" state={true} />
-        </View>
+        {type !== 'Done' && (
+          <View style={commonStyles.fullLine}>
+            <View style={commonStyles.full} />
+            <Button style={commonStyles.mr20} title="Cancel" state={false} />
+            <Button title="Pay" state={true} />
+          </View>
+        )}
       </View>
     </View>
   );
@@ -97,6 +80,16 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.8,
     shadowRadius: 10,
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+    padding: 20,
+
+    borderBottomColor: '#F8F9FB',
+    borderBottomWidth: 1,
   },
 });
 
