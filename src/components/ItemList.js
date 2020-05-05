@@ -4,6 +4,7 @@ import {COLORS} from '../commons/constants';
 import ItemCard from './ItemCard';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Feather';
+import ItemsBar from './ItemsBar';
 
 const CATS = [
   {
@@ -32,14 +33,7 @@ const ItemList = () => {
   return (
     <View style={styles.container}>
       <View style={styles.icons}>
-        {CATS.map((item) => {
-          return (
-            <View key={item.id} style={styles.iconBlock}>
-              <Icon name={item.icon} size={30} color={COLORS.BLUE_OUTLINE} />
-              <Text style={styles.iconName}>{item.name}</Text>
-            </View>
-          );
-        })}
+        <ItemsBar items={CATS} />
       </View>
       <View style={styles.title}>
         <Text style={styles.choiceness}>Choiceness</Text>
@@ -59,14 +53,15 @@ const ItemList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    marginHorizontal: 20,
+    marginBottom: 20,
   },
   list: {
     borderRadius: 10,
     backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: {
-      width: 10,
+      width: 0,
       height: 0,
     },
     shadowOpacity: 0.1,

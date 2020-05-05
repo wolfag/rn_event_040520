@@ -1,17 +1,28 @@
 import {StyleSheet} from 'react-native';
 
 const commonStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   full: {
     flex: 1,
   },
   fullLine: {
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
   },
   fullLineBetween: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   p10: {
@@ -39,6 +50,9 @@ const commonStyles = StyleSheet.create({
   },
   mt20: {
     marginTop: 20,
+  },
+  mh20: {
+    marginHorizontal: 20,
   },
 
   txtGray: {color: '#AEB6B8'},

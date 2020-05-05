@@ -1,15 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Swiper from 'react-native-swiper';
 import {COLORS} from '../commons/constants';
+import {commonStyles} from '../commons/styles';
+import img from '../assets/imgs/iphone.jpg';
 
 const Card = () => (
   <View>
     <LinearGradient
       colors={[COLORS.BLUE_WEIGHT, COLORS.BLUE_MIDDLE, COLORS.BLUE_LIGHT]}
       style={[styles.card, styles.slide1]}>
-      <View style={{flex: 1}}>
+      <View style={[commonStyles.full, {justifyContent: 'center'}]}>
         <Text style={[styles.text, styles.bigText]}>
           We create products not just art
         </Text>
@@ -17,8 +19,8 @@ const Card = () => (
           Our experience in the
         </Text>
       </View>
-      <View style={{flex: 1}}>
-        <Text>Image here</Text>
+      <View style={[commonStyles.full, commonStyles.center]}>
+        <Image source={img} style={commonStyles.imgFull} />
       </View>
     </LinearGradient>
     <LinearGradient colors={['#CFD4F0', '#fff']} style={styles.shadown} />
@@ -45,7 +47,7 @@ const SwiperCard = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 300,
+    height: 250,
     paddingLeft: 20,
     paddingRight: 20,
   },
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
   },
   card: {
     display: 'flex',
-    height: 240,
+    height: 200,
     borderRadius: 20,
     padding: 20,
   },

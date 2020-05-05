@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 function MainTab() {
   return (
     <Tab.Navigator
-      initialRouteName="Order"
+      initialRouteName="Cart"
       tabBarOptions={{
         activeTintColor: COLORS.BLUE_OUTLINE,
         inactiveTintColor: COLORS.GRAY_LIGHT,
@@ -50,7 +50,7 @@ function MainTab() {
         name="Plus"
         component={PlusScreen}
         options={{
-          tabBarButton: () => <PlusButton />,
+          tabBarIcon: () => <PlusButton />,
         }}
       />
       <Tab.Screen

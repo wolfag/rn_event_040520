@@ -1,18 +1,21 @@
 import React from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet, SafeAreaView} from 'react-native';
 import SearchBar from '../components/SearchBar';
 import SwiperCard from '../components/SwiperCard';
 import ItemList from '../components/ItemList';
+import {commonStyles} from '../commons/styles';
 
 const CartScreen = () => {
   return (
-    <View style={styles.container}>
-      <SearchBar />
-      <ScrollView>
-        <SwiperCard />
-        <ItemList />
-      </ScrollView>
-    </View>
+    <SafeAreaView style={[commonStyles.container]}>
+      <View style={styles.container}>
+        <SearchBar />
+        <ScrollView>
+          <SwiperCard />
+          <ItemList />
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 

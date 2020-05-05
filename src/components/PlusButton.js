@@ -6,7 +6,7 @@ import {COLORS} from '../commons/constants';
 
 const PlusButton = () => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => alert('add')}>
       <LinearGradient
         style={styles.linearGradient}
         start={{x: 0, y: 0}}
@@ -20,13 +20,13 @@ const PlusButton = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 46,
-    height: 46,
+    width: 40,
+    height: 40,
   },
   linearGradient: {
     height: '100%',
     width: '100%',
-    borderRadius: 23,
+    borderRadius: 20,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
